@@ -1,0 +1,17 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "prebuild": "mkdir -p dist && cd ../web && yarn build && cp -r build ../server/dist/build",
+    "build": "yarn prebuild && tsc",
+    "prestart": "npm run build",
+    "start": "node ."
+  },
+  "dependencies": {
+    "@app/components": "*",
+    "@types/express": "^4.17.6",
+    "express": "^4.17.1"
+  }
+}
