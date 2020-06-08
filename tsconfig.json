@@ -3,7 +3,7 @@
     "strict": true,
     "declaration": true,
     "module": "commonjs",
-    "jsx": "react",
+    "target": "es6",
     "sourceMap": true,
     "esModuleInterop": true
   }
