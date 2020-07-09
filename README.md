@@ -8,8 +8,8 @@ Most of code is contained in the `packages` folder. There are three packages: `w
 
 ## Getting Started
 
-    git clone git@github.com:woodpav/typescript-monorepo-ssr.git
-    cd typescript-monorepo-ssr
+    git clone git@github.com:woodpav/server-side-react-typescript-monorepo.git
+    cd server-side-react-typescript-monorepo
     yarn 
     cd packages/web 
     yarn start 
