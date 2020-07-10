@@ -11,6 +11,9 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
   },
+  externals: {
+    express: "require(\"express\")"
+  },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
