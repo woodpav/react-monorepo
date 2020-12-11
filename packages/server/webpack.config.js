@@ -1,6 +1,10 @@
-const path = require('path');
+/* eslint-disable @typescript-eslint/no-var-requires */
 
-module.exports = {
+const path = require('path');
+const CopyPlugin = require('copy-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+
+module.exports = [{
   target: 'node',
   mode: process.env.NODE_ENV || 'development',
   entry: './src/index.tsx',
@@ -12,7 +16,7 @@ module.exports = {
     filename: 'index.js',
   },
   externals: {
-    express: "require(\"express\")"
+    express: 'require("express")',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
@@ -27,4 +31,12 @@ module.exports = {
       },
     ],
   },
-};
+  plugins: [
+    new CleanWebpackPlugin(),
+    new CopyPlugin({
+      patterns: [
+        { from: '../web/build', to: 'client' },
+      ],
+    }),
+  ],
+}];

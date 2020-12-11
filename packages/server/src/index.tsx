@@ -9,7 +9,7 @@ const server = express();
 
 server.get('/*', (req, res) => {
   const html = ReactDOMServer.renderToString(<App greeting="from server" />);
-  const index = path.resolve(`${__dirname}/../dist/build/index.html`);
+  const index = path.resolve(`${__dirname}/../dist/client/index.html`);
 
   fs.readFile(index, 'utf8', (err, data) => {
     if (err) {

@@ -20,6 +20,10 @@ Most of code is contained in the `packages` folder. There are three packages: `w
 
 Run `cd packages/web` and run `yarn start`. You can now change anything in the components folder and it will be reflected on refresh of your browser. Everytime you start the server it rebuilds the web app so your changes will NOT be reflected when running the app from the server until you run yarn start again. 
 
+## Deploying on Google Cloud App Engine
+
+Add `package.json` to your `.gcloudignore` and the `entrypoint: node dist/index.js` to your app.yaml.
+
 ## Adding More Packages
 
 In order to add another package:
