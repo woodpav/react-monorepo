@@ -5,17 +5,14 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "jest",
-    "start": "nodemon src/index.tsx",
-    "prestart": "npm run build:client",
+    "start": "ts-node src/index.tsx",
+    "prestart": "npm run build",
     "build": "npm run build:client && webpack",
-    "build:client": "yarn --cwd ../web build",
-    "predeploy": "npm run build",
-    "deploy": "gcloud app deploy"
+    "build:client": "yarn --cwd ../web build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@app/components": "*",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
@@ -32,6 +29,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "copy-webpack-plugin": "^6.2.1",
     "nodemon": "^2.0.4",
+    "ts-node": "^9.1.1",
     "typescript": "^3.9.6",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",

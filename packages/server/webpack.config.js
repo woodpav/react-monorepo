@@ -5,6 +5,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = [{
+  mode: 'production',
   target: 'node',
   mode: process.env.NODE_ENV || 'development',
   entry: './src/index.tsx',
@@ -14,9 +15,6 @@ module.exports = [{
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'index.js',
-  },
-  externals: {
-    express: 'require("express")',
   },
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx'],
