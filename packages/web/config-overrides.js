@@ -1,16 +1,16 @@
- 
-module.exports = function override(config, env) {
+var path = require('path')
 
-  let babelLoader = config.module.rules[2].oneOf[1];
+const { override, babelInclude } = require('customize-cra')
 
-  // Load the all the package's typescript with CRA's tsconfig.
-  const babelPath = babelLoader.include;
-
-  // Fix the path for all windows/linux/mac.
-  babelLoader.include = babelPath.includes('\\')
-    ? babelPath.replace('\\web\\src', '')
-    : babelPath.replace('/web/src', '');
-  config.module.rules[2].oneOf[1] = babelLoader;
-
-  return config;
-};
+module.exports = function (config, env) {
+  return Object.assign(
+    config,
+    override(
+      babelInclude([
+        /* transpile (converting to es5) code in src/ and shared component library */
+        path.resolve('src'),
+        path.resolve('../../packages'),
+      ])
+    )(config, env)
+  )
+}
